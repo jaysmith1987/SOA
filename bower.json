@@ -1,0 +1,53 @@
+{
+  "name": "soa",
+  "description": "Mock website that displays  oracle data in a dashboard.",
+  "main": "app.js",
+  "authors": [
+    "paradyme"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "soa",
+    "dashboard",
+    "core"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-translate": "~2.7.2",
+    "angular-animate": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-local-storage": "~0.2.2",
+    "angular-dialog-service": "~5.2.8",
+    "angular-bootstrap": "~0.12.1",
+    "angular-cookies": "~1.4.8",
+    "gibberish-aes": "*",
+    "lodash": "~3.9.3",
+    "angular-ui-router": "~0.2.15",
+    "angular-translate-interpolation-messageformat": "~2.8.1",
+    "messageformat": "~0.2.2",
+    "moment": "~2.10.6",
+    "angular-translate-loader-partial": "~2.9.0",
+    "angular-recaptcha": "~2.5.0",
+    "angular-aria": "~1.5.0",
+    "jquery": "~3.2.1",
+    "verge": "~1.10.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  },
+  "resolutions": {
+    "angular": "~1.4.8",
+    "angular-bootstrap": "~0.14.0",
+    "messageformat": "~0.2.2",
+    "angular-translate": "~2.7.2",
+    "angular-mocks": "~1.4.8"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "soa",
+  "version": "1.0.0",
+  "description": "Mock website that displays  oracle data in a dashboard.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "*",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "~1.17.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "express-handlebars": "^3.0.0",
+    "express-messages": "^1.0.1",
+    "express-session": "^1.15.5",
+    "express-validator": "^4.1.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "mns-core-ui": "^7.1.11",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.9",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "serve-favicon": "~2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaysmith1987/SOA.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaysmith1987/SOA/issues"
+  },
+  "homepage": "https://github.com/jaysmith1987/SOA#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
