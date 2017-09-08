@@ -34,7 +34,7 @@ router.post('/register', function(req,res){
   var errors = req.validationErrors();
 
   if(errors){
-    res.render('/register', {
+    res.render('register', {
       errors: errors
     });
   } else {
@@ -50,18 +50,17 @@ router.post('/register', function(req,res){
       console.log(user); 
     });
     req.flash('success_msg', 'You are registered and can now login');
-    res.redirect('/login');
+    res.redirect('login');
   }
 });
 
 passport.use(new LocalStrategy(
   function(username, password, done){
-    User.getUserByUserName(username, function(err,user){
-      if(err) throw err;
-      if(!user){
-        return done(null, false, {message: 'Unknown User'});
-      }
-
+    User.getUserByUsername(username, function(err,user){
+       if(err) throw err;
+       if(!user){
+         return done(null, false, {message: 'Unknown User'});
+       }
       User.comparePassword(password, user.password, function(err, isMatch){
         if(err) throw err;
         if(isMatch){
@@ -89,10 +88,10 @@ passport.use(new LocalStrategy(
       res.redirect('/');
     });
 
-  router.post('/logout', function(req,res){
+  router.get('/logout', function(req,res){
     req.logout();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/login');
+    res.redirect('login');
   });
 
 
