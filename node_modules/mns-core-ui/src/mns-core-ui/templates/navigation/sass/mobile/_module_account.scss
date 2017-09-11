@@ -1,0 +1,27 @@
+.menu__mobile__account {
+  display: block;
+  margin: 0;
+  padding: 20px;
+  border-top: 1px solid $color__brand--light-grey;
+  border-bottom: 1px solid $color__brand--light-grey;
+  background-color: $color__brand--background-grey;
+  list-style: none;
+
+  > li {
+    line-height: 3.2rem;
+
+    > a {
+      text-decoration: none;
+    }
+  }
+}
+
+.menu__mobile__icon {
+  display: inline-block;
+  width: 20px;
+}
+
+.menu__button--hide-menu {
+  padding-top: 4px;
+  border-bottom: 4px solid $color__brand--black;
+}
