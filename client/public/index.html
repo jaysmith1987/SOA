@@ -15,7 +15,7 @@
     <!--Angular Addons-->
     <script src="js/app.js"></script>
 </head>
- <body ng-app="dashboard">
+ <body ng-app="dashboard" ng-controller="dashCtrl">
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" ui-sref="dashboard" >Dashboard</a>
       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,18 +25,18 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" ui-sref="login" >Logout</a>
+            <a class="nav-link" ui-sref="login" ng-show="loggedIn">Logout</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" ui-sref="login" >Login</a>
+            <a class="nav-link" ui-sref="login" ng-show="!loggedIn">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" ui-sref="register">Register</a>
+            <a class="nav-link" ui-sref="register" ng-show="!loggedIn">Register</a>
           </li>
         </ul>
         <span class="glyphicon glyphicon-equalizer" style="color:blue"></span>
     </nav>
-    <div class="container-fluid" id="sidebar">
+    <div class="container-fluid" id="sidebar" ng-show="!loggedIn">
       <div class="row">
         <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-dark sidebar">
           <ul class="nav nav-pills flex-column">

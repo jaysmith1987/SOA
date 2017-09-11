@@ -7,7 +7,7 @@ var User = require('../models/users');
 
 /* GET home page. */
 
-router.get('/json', function(req,res){
+router.get('/api/json', function(req,res){
   res.sendfile('SampleJSONPayload.txt')
 })
 
@@ -15,7 +15,7 @@ router.get('*', function(req, res, next) {
   res.sendFile('./client/public/index.html');
 });
 
-router.post('/register', function(req,res){
+router.post('/api/register', function(req,res){
   var name = req.body.name;
   var email = req.body.email;
   var username = req.body.username;
@@ -43,10 +43,15 @@ router.post('/register', function(req,res){
     });
 
     User.createUser(newUser, function(err, user){
-      if(err) throw err;
-      console.log(user); 
+      if(err) {
+        res.status(404).json(err);
+        return
+      } 
     });
-    req.flash('success_msg', 'You are registered and can now login');
+    res.status(200);
+    res.json({
+      "token": token
+    })
     res.redirect('login');
   }
 });
@@ -79,13 +84,13 @@ passport.use(new LocalStrategy(
     });
   });
 
-  router.post('/login',
+  router.post('/api/login',
     passport.authenticate('local', {successRedirect:'/', failureRedirect: '/login', failureFlash: true}),
     function(req, res){
       res.redirect('/');
     });
 
-  router.get('/logout', function(req,res){
+  router.get('/api/logout', function(req,res){
     req.logout();
     req.flash('success_msg', 'You are logged out');
     res.redirect('login');
