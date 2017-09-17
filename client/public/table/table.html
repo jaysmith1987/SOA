@@ -1,0 +1,54 @@
+<!--public/views/table.html-->
+
+ <div class="container-fluid">
+    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+          <h1>Tables</h1>
+          <br/>
+          <h2>Ordered By Trace ID</h2>
+          <br/>
+          <div class="table-responsive">
+            <table class="table table-invers bg-primary">
+              <thead>
+                <tr>
+                  <th>Conversation ID</th>
+                  <th>Sender</th>
+                  <th>Target</th>
+                  <th>Origin</th>
+                  <th>Message Date</th>
+                  <th>Message State</th>
+                  <th>Ack ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="x in table">
+                  <td>{{x.conversationID}}</td>
+                  <td>{{x.sender}}</td>
+                  <td>{{x.target}}</td>
+                  <td>{{x.origin}}</td>
+                  <td>{{x.messageDate}}</td>
+                  <td>{{x.messageState}}</td>
+                </tr>
+              </tbody>
+            </table>
+            <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+                </li>
+            </ul>
+            </nav>
+          </div>
+    </main>
+ </div>

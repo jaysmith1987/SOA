@@ -1,94 +1,81 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+var jwt = require('jsonwebtoken');
+var secret = 'v@#$Yinsert&(/3';
+
+
 var User = require('../models/users');
 
 
 /* GET home page. */
 
-router.get('/json', function(req,res){
+router.get('/api/json', function(req,res){
   res.sendfile('SampleJSONPayload.txt')
 })
+
+router.get('/api/users', function(req,res){
+   User.find(function(err, users){
+     if(err)
+      res.send(err);
+
+      res.json(users);
+   });
+});
+
 
 router.get('*', function(req, res, next) {
   res.sendFile('./client/public/index.html');
 });
 
-router.post('/register', function(req,res){
-  var name = req.body.name;
-  var email = req.body.email;
-  var username = req.body.username;
-  var password = req.body.password;
-  var password2 = req.body.password2;
 
-  req.checkBody('name', 'Name is required').notEmpty();
-  req.checkBody('email', 'Email is required').notEmpty();
-  req.checkBody('username', 'Username is required').notEmpty();
-  req.checkBody('password', 'Password is required').notEmpty();
-  req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
-  var errors = req.validationErrors();
+router.post('/api/users', function(req,res){
+  var user = new User();
+  user.username = req.body.username;
+  user.email = req.body.email;
+  user.password = req.body.password;
 
-  if(errors){
-    res.render('/register', {
-      errors: errors
-    });
-  } else {
-    var newUser = new User({
-      name: name,
-      email: email,
-      username: username,
-      password: password
-    });
-
-    User.createUser(newUser, function(err, user){
-      if(err) throw err;
-      console.log(user); 
-    });
-    req.flash('success_msg', 'You are registered and can now login');
-    res.redirect('login');
-  }
+  user.save(function(err){
+    if(err){
+      res.json({success: false, message: 'Username or Email already exists!'});
+    } else {
+      res.json({success: true, message: 'User created'});
+    }
+  });
 });
 
-passport.use(new LocalStrategy(
-  function(username, password, done){
-    User.getUserByUsername(username, function(err,user){
-       if(err) throw err;
-       if(!user){
-         return done(null, false, {message: 'Unknown User'});
-       }
-      User.comparePassword(password, user.password, function(err, isMatch){
-        if(err) throw err;
-        if(isMatch){
-          return done(null, user);
-        } else {
-          return done(null, false, {message: 'Invalid password'});
-        }
-      })
-    });
-  }));
-
-  passport.serializeUser(function(user, done){
-    done(null, user.id);
+router.post('/api/login', function(req, res){
+  User.findOne({ username: req.body.username }).select('email username password').exec(function(err, user){
+    if(err) throw err;
+    
+    if(!user){
+      res.json({ success: false, message: 'Could not authenticate user'});
+    } else if (user) {
+      if(req.body.password) {
+        var validPassword = user.comparePassword(req.body.password);
+      } else {
+        res.json({ success: false, message: 'No password provided'});
+      }
+      if(!validPassword){
+        res.json({ success: false, message: 'Could not authenticate password'});
+      } else {
+        var token = jwt.sign({username: user.username, email: user.email},secret,{expiresIn: '24h'});
+        res.json({ success: true, message: 'User authenticated!', token: token});
+      }
+    }
   });
+});
 
-  passport.deserializeUser(function(id, done){
-    User.getUserById(id, function(err, user){
-      done(err, user);
-    });
-  });
 
-  router.post('/login',
-    passport.authenticate('local', {successRedirect:'/', failureRedirect: '/login', failureFlash: true}),
-    function(req, res){
-      res.redirect('/');
-    });
+router.get('api/logout', function(req,res){
+  console.log('logging out');
+  req.logout();
+  res.send(200)
+});
 
-  router.get('/logout', function(req,res){
-    req.logout();
-    req.flash('success_msg', 'You are logged out');
-    res.redirect('login');
-  });
+
+
+
+
 
 module.exports = router;

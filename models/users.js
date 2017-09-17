@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs');
+var Schema = mongoose.Schema;
+var bcrypt = require('bcrypt-nodejs');
 
 
-var userSchema = mongoose.Schema({
+var User = new Schema({
     username: {
         type:String,
         index:true
@@ -12,36 +13,22 @@ var userSchema = mongoose.Schema({
     },
     email: {
         type: String
-    },
-    name: {
-        type:String
     }
 });
 
-var User = module.exports = mongoose.model('user', userSchema);
-
-module.exports.createUser = function(newUser, callback){
-        bcrypt.genSalt(10, function(err, salt) {
-        bcrypt.hash(newUser.password, salt, function(err, hash) {
-                newUser.password = hash;
-                newUser.save(callback);
-        });
-    }); 
-}
-
-module.exports.getUserByUsername = function(username, callback){
-    var query = {username: username};
-    User.findOne(query, callback);
-}
-
-module.exports.getUserById = function(id, callback){
-    User.findById(id, callback);
-}
-
-module.exports.comparePassword = function(candidatePassword, hash, callback){
-    bcrypt.compare(candidatePassword, hash, function(err, isMatch){
-        if(err) throw err;
-        callback(null, isMatch);
+User.pre('save', function(next){
+    var user = this;
+    bcrypt.hash(user.password, null, null, function(err, hash){
+        if(err) return next(err);
+        user.password = hash;
+        next()
     });
-}
+});
+
+User.methods.comparePassword = function(password){
+    return bcrypt.compareSync(password, this.password);
+};
+
+ module.exports = mongoose.model('users', User);
+
 
