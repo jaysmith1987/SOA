@@ -1,6 +1,6 @@
-app.controller('tableCtrl', ['$http', '$scope',
-    function($http, $scope){
-        http.get('api/json')
+app.controller('tableCtrl', ['$scope', '$http',
+    function($scope, $http){
+        $http.get('api/json')
         .then(function(response){
             $scope.table = response.data;
         })

@@ -25,9 +25,4 @@ app.controller('loginCtrl', [ '$location', 'loginService',
                 }
             });
         };
-
-        this.logout = function(){
-            Auth.logout();
-            $location.path('/login');
-        };
     }]);
