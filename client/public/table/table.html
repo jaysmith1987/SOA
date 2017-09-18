@@ -1,54 +1,86 @@
-<!--public/views/table.html-->
+<div class=row>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon blue pull-left"><i class="fa fa-users"></i></div>
+                <div class=title>134</div>
+                <div class=comment>Conversations</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon yellow pull-left"><i class="fa fa-sitemap"></i></div>
+                <div class=title>2</div>
+                <div class=comment>Senders</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon green pull-left"><i class="fa fa-check"></i></div>
+                <div class=title>120</div>
+                <div class=comment>Delivered</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+    <div class="col-lg-3 col-md-6 col-xs-12">
+        <rd-widget>
+            <rd-widget-body>
+                <div class="widget-icon red pull-left"><i class="fa fa-times"></i></div>
+                <div class=title>14</div>
+                <div class=comment>Errors</div>
+            </rd-widget-body>
+        </rd-widget>
+    </div>
+</div>
+<div class=row>
+    <div class=col-lg-12>
+        <rd-widget>
+            <rd-widget-header icon="fa-table" title=""><a href=#>Filter</a>|<a href=#>Sort</a>
+          </rd-widget-header>
+            <rd-widget-body classes="large no-padding">
+                <div class=table-responsive>
+                    <table class=table>
+                        <tbody>
+                            <tr>
+                                <th>Conversation ID</th>
+                                <th>Sender</th>
+                                <th>Target</th>
+                                <th>Origin</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
 
- <div class="container-fluid">
-    <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-          <h1>Tables</h1>
-          <br/>
-          <h2>Ordered By Trace ID</h2>
-          <br/>
-          <div class="table-responsive">
-            <table class="table table-invers bg-primary">
-              <thead>
-                <tr>
-                  <th>Conversation ID</th>
-                  <th>Sender</th>
-                  <th>Target</th>
-                  <th>Origin</th>
-                  <th>Message Date</th>
-                  <th>Message State</th>
-                  <th>Ack ID</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="x in table">
-                  <td>{{x.conversationID}}</td>
-                  <td>{{x.sender}}</td>
-                  <td>{{x.target}}</td>
-                  <td>{{x.origin}}</td>
-                  <td>{{x.messageDate}}</td>
-                  <td>{{x.messageState}}</td>
-                </tr>
-              </tbody>
-            </table>
-            <nav aria-label="Page navigation example">
-            <ul class="pagination">
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                </a>
-                </li>
-            </ul>
-            </nav>
-          </div>
-    </main>
- </div>
+                            <tr ng-repeat="x in table">
+                                <td>{{x.conversationID}}</td>
+                                <td>{{x.sender}}</td>
+                                <td>{{x.target}}</td>
+                                <td>{{x.origin}}</td>
+                                <td>{{x.messageDate}}</td>
+                                <td>{{x.messageState}}</td>
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </rd-widget-body>
+                  <rd-widget-footer>
+                    <ul class="pagination pagination-sm pull-right">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                    <div class="clearfix"></div>
+            </rd-widget-footer>
+        </rd-widget>
+    </div>
+
+
+
+</div>
+<div class=row>
+</div>

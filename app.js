@@ -20,7 +20,7 @@ var app = express();
 mongoose.connect('mongodb://localhost:27017/soadb')
 var db = mongoose.connection;
 
-
+app.use(favicon(path.join(__dirname, '/client/public', 'favicon.ico')))
 app.use(express.static(__dirname + '/client/public'));
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
