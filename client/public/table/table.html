@@ -1,86 +1,129 @@
 <div class=row>
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-4 col-md-6 col-xs-12">
         <rd-widget>
             <rd-widget-body>
-                <div class="widget-icon blue pull-left"><i class="fa fa-users"></i></div>
-                <div class=title>134</div>
-                <div class=comment>Conversations</div>
+                <div class="widget-icon blue pull-left" ng-click="setTransaction()"><i class="fa fa-users"></i></div>
+                <div class=title><li class="hidden" ng-repeat="table in conversation =(tables|orderBy:'conversation')"></li>
+                {{conversation.length}}</div>
+                <div class=comment>Transactions</div>
             </rd-widget-body>
         </rd-widget>
     </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-4 col-md-6 col-xs-12">
         <rd-widget>
             <rd-widget-body>
-                <div class="widget-icon yellow pull-left"><i class="fa fa-sitemap"></i></div>
-                <div class=title>2</div>
-                <div class=comment>Senders</div>
-            </rd-widget-body>
-        </rd-widget>
-    </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
-        <rd-widget>
-            <rd-widget-body>
-                <div class="widget-icon green pull-left"><i class="fa fa-check"></i></div>
-                <div class=title>120</div>
+                <div class="widget-icon green pull-left" ng-click="setDelivered()"><i class="fa fa-check"></i></div>
+                <div class=title><li class="hidden" ng-repeat="table in delivered =(tables|filter: 'delivered')"></li>
+                {{delivered.length}}</div>
                 <div class=comment>Delivered</div>
             </rd-widget-body>
         </rd-widget>
     </div>
-    <div class="col-lg-3 col-md-6 col-xs-12">
+    <div class="col-lg-4 col-md-6 col-xs-12">
         <rd-widget>
             <rd-widget-body>
-                <div class="widget-icon red pull-left"><i class="fa fa-times"></i></div>
-                <div class=title>14</div>
-                <div class=comment>Errors</div>
+                <div class="widget-icon red pull-left" ng-click="setError()"><i class="fa fa-times"></i></div>
+                <div class="title" ><li class="hidden" ng-repeat="table in errors =(tables|filter: 'error')" ></li>{{errors.length}}</div>
+                <div class='comment'>Errors</div>
+                <modal></modal>
             </rd-widget-body>
         </rd-widget>
     </div>
 </div>
-<div class=row>
-    <div class=col-lg-12>
+
+<div class="col-lg-12 col-md-12 col-xs-12">
+    <rd-widget>
+        <rd-widget-body>
+ <form ng-submit="getData(dateRange)" >
+     <Label>Start Date</Label>
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dateRange.startDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+    <Label>End Date</Label>
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dateRange.endDate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+        </rd-widget-body>
+    </rd-widget>
+    </div>
+
+<div>
+    <div class="col-lg-12">
         <rd-widget>
-            <rd-widget-header icon="fa-table" title=""><a href=#>Filter</a>|<a href=#>Sort</a>
+        <rd-widget-header icon="fa fa-table" title="SOA Table">
           </rd-widget-header>
+        <div class="soft-grey">
+          <div class="input-group">
+            <input type="text" class="form-control" ng-model="search" placeholder="Search.." >
+          </div>
+        </div>
             <rd-widget-body classes="large no-padding">
                 <div class=table-responsive>
                     <table class=table>
                         <tbody>
                             <tr>
-                                <th>Conversation ID</th>
-                                <th>Sender</th>
-                                <th>Target</th>
-                                <th>Origin</th>
-                                <th>Date</th>
-                                <th>Status</th>
+                                <th ng-click="orderByMe('conversationID')">Conversation ID &nbsp;<i ng-class="{'fa fa-chevron-circle-up': opened===false, 'fa fa-chevron-down': opened=== true }"></i></th>
+                                <th ng-click="orderByMe('sender')">Sender &nbsp;<i ng-class="{'fa fa-chevron-circle-up': up===false, 'fa fa-chevron-down': up=== true }"></i></th>
+                                <th ng-click="orderByMe('target')">Target &nbsp;<i ng-class="{'fa fa-chevron-circle-up': target===false, 'fa fa-chevron-down': target=== true }"></i></th>
+                                <th ng-click="orderByMe('origin')">Origin &nbsp;<i ng-class="{'fa fa-chevron-circle-up': origin===false, 'fa fa-chevron-down': origin=== true }"></i></th>
+                                <th ng-click="orderByMe('integrationName')">IntegrationName &nbsp;<i ng-class="{'fa fa-chevron-circle-up': ms===false, 'fa fa-chevron-down': ms=== true }"></i></th>
+                                <th ng-click="orderByMe('messageDate')">Date &nbsp;<i ng-class="{'fa fa-chevron-circle-up': md===false, 'fa fa-chevron-down': md=== true }"></i></th>
+                                <th ng-click="orderByMe('messageState')">Status &nbsp;<i ng-class="{'fa fa-chevron-circle-up': ms===false, 'fa fa-chevron-down': ms=== true }"></i></th>
                             </tr>
 
-                            <tr ng-repeat="x in table">
-                                <td>{{x.conversationID}}</td>
-                                <td>{{x.sender}}</td>
-                                <td>{{x.target}}</td>
-                                <td>{{x.origin}}</td>
-                                <td>{{x.messageDate}}</td>
-                                <td>{{x.messageState}}</td>
+                            <tr dir-paginate="(key, val) in tables| orderBy:myOrderBy | filter:errorButton | filter: byDelivered | filter:search|itemsPerPage: 50">
+                                <td>{{val.conversationID}}</td>
+                                <td>{{val.sender}}</td>
+                                <td>{{val.target}}</td>
+                                <td>{{val.origin}}</td>
+                                <td>{{val.integrationName}}</td>
+                                <td>{{val.messageDate}}</td>
+                                <td ng-class="{ 'text-primary': val.messageState === 'ERROR'}" ng-click="getValue(val.conversationID, val.errorInfo.errorReason, val.errorInfo.errorDetail, val.errorInfo.retryStatus)" >{{val.messageState}}</td>  
+                                                     
                           </tr>
                         </tbody>
                     </table>
                 </div>
+                <ul>
+                    
+              
             </rd-widget-body>
                   <rd-widget-footer>
-                    <ul class="pagination pagination-sm pull-right">
-                        <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">&raquo;</a></li>
-                    </ul>
+                   <dir-pagination-controls 
+                   max-size="30"
+                   direction-links="true"
+                   boundary-links="true">
+                   </dir-pagination-controls>
                     <div class="clearfix"></div>
             </rd-widget-footer>
         </rd-widget>
     </div>
 
-
-
+<div  id="errorInfo" ng-if="errorReason">
+<div class="card">
+ <h4 class="card-header text-center">Error Info</h4>
+  <div class="card-body">
+       <span class="text-justify text-danger">ConversationID:</span>
+       <span>&nbsp;{{convoId}}</span><br>
+       <span class="text-justify text-danger">ErrorReason: </span><span>{{errorReason}}</span><br>
+       <span ng-hide="!errorDetail" class="text-justify text-danger">ErrorDetails:</span><span> {{errorDetail}}</span><br>
+       <span class="text-justify text-danger">RetryStatus:</span><span>{{retryStatus}}</span><br>
+       <button class="btn btn-danger" ng-click="close()">X</button>
+       </div>
 </div>
+</div>
+    
+  
+
 <div class=row>
+  
 </div>

@@ -93,7 +93,7 @@ app.get('*', function(req,res){
   res.sendfile('./client/public/index.html')
 });
 
-var port = app.get('port') || 3001;
+var port = app.get('port') || 3005;
 
 app.listen(port, function(){
   console.log(`Server is listening on port ${port}`)
