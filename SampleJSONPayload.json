@@ -14,7 +14,7 @@
          "errorCode": "Response code:500",
          "errorReason": "Failure When Invoking Target Service",
          "errorDetail": " ",
-         "retryStatus": "MANUAL",
+         "retryStatus": "Auto",
          "retryDate": null,
          "outboundTarget": null
       }
@@ -33,7 +33,7 @@
          "errorCode": "Response code:500",
          "errorReason": "Failure When Invoking Target Service",
          "errorDetail": " ",
-         "retryStatus": "MANUAL",
+         "retryStatus": "Auto",
          "retryDate": null,
          "outboundTarget": null
       }

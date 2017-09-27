@@ -1,53 +1,20 @@
-app.controller('tableCtrl', ['$scope', '$http', 'tableData',
-    function($scope, $http, tableData){
+app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
+    function($scope, $http, tableData, moment){
         $scope.tables = [];
-        $scope.opened = false;
-        $scope.up = false;
-        $scope.target = false;
-        $scope.origin = false;
-        $scope.md = false;
-        $scope.ms = false;
         $scope.lists = [];
-
-    
+        $scope.expanded = false;  
+        $scope.showTime = false;  
+        $scope.showTime2 = false;
          
         tableData.getStandardData().then(function(data){
             $scope.tables = data;
         })
         
-            $scope.orderByMe = function(x){
-            $scope.myOrderBy = x;
-            if($scope.myOrderBy === 'conversationID') {
-                $scope.opened = true;
-            } else {
-                $scope.opened = false;
-            }
-            if($scope.myOrderBy === 'sender') {
-                $scope.up = true;
-            } else {
-                $scope.up = false;
-            }
-            if($scope.myOrderBy === 'target') {
-                $scope.target = true;
-            } else {
-                $scope.target = false;
-            }
-            if($scope.myOrderBy === 'origin'){
-                $scope.origin = true;
-            } else {
-                $scope.origin = false;
-            }
-            if($scope.myOrderBy === 'messageDate'){
-                $scope.md = true;
-            } else {
-                $scope.md = false;
-            }
-            if($scope.myOrderBy === 'messageState'){
-                $scope.ms = true;
-            } else {
-                $scope.ms = false;
-            }
+
+        $scope.theValue = function(selected){
+          $scope.filterThis = selected;
         }
+       
        
         $scope.error = true;
 
@@ -103,18 +70,21 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData',
 
   $scope.open1 = function() {
     $scope.popup1.opened = true;
+    $scope.showTime = false;
   };
 
   $scope.open2 = function() {
     $scope.popup2.opened = true;
+    $scope.showTime2 = false;
+    $scope.showTime = false;
   };
 
-  $scope.setDate = function(year, month, day) {
-    $scope.startDate = new Date(year, month, day);
-    $scope.endDate = new Date(year, month, day);
+  $scope.setDate = function(year, month, day, hours, minutes) {
+    $scope.startDate = new Date(year, month, day, hours, minutes);
+    $scope.endDate = new Date(year, month, day, hours, minutes);
   };
 
-  $scope.formats = ['dd-MM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+  $scope.formats = ['MM-dd-yyyy hh:mm:ss a', 'yyyy/MM/dd', 'dd.MM.yyyy', ''];
   $scope.format = $scope.formats[0];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 
@@ -162,12 +132,18 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData',
   $scope.setError = function(){
          $scope.errorButton = 'error';
          $scope.byDelivered = '';
+         $scope.hospital = '';
+         $scope.selected = '';
+         $scope.filterThis = '';
          $scope.search = 'error';
   }
 
   $scope.setDelivered = function(){
           $scope.byDelivered = 'delivered';
           $scope.errorButton = '';
+          $scope.hospital = '';
+          $scope.filterThis = '';
+          $scope.selected = '';
           $scope.search = 'delivered';
   }
 
@@ -175,13 +151,53 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData',
       $scope.byDelivered = '';
       $scope.errorButton = '';
       $scope.search = '';
+      $scope.filterThis = '';
+      $scope.selected = '';
+      $scope.hospital = '';
   }
+
+  $scope.sethospital = function(){
+    $scope.hospital = 'manual';
+    $scope.errorButton = '';
+    $scope.byDelivered = '';
+    $scope.filterThis = '';
+    $scope.selected = '';
+    $scope.search = 'manual';
+  }
+
+  
    $scope.getData = function(dateRange){
            tableData.getDatabyDate(this.dateRange).then(function(response){
                $scope.tables = response;
            })
         }
+    
+   $scope.timePicker = function(){
+     $scope.showTime = true;
+     $scope.showTime2 = false;
+   }
 
+   $scope.timePicker2 = function(){
+     $scope.showTime2 = true;
+     $scope.showTime = false;
+   }
+
+   $scope.closeTime = function(){
+     $scope.showTime = false;
+     $scope.showTime2 = false;
+   }
+
+   $scope.closeTime2 = function(){
+     $scope.showTime2 = false;
+     $scope.showTime = false;
+   }
+
+   $scope.reset = function(){
+      tableData.getStandardData().then(function(data){
+            $scope.tables = data;
+        })
+   }
 
    console.log($scope.startDate.toISOString() + '' + $scope.endDate.toISOString());
     }]);
+
