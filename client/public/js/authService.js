@@ -9,7 +9,7 @@ app.factory('authService', ['$http',
         return userFactory;
     }]);
   
- app.factory('tableData', ['$http', function($http){
+ app.factory('tableData', ['$http',  function($http){
      tableFactory = {};
 
      tableFactory.getStandardData = function(){
