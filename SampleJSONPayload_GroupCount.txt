@@ -1,0 +1,330 @@
+JSON response payload for groupCount operations:
+
+**************** Cout by TARGET ****************
+Request URI: https://esb-soa-soa.dev.asd.census.gov/ArchTraceMonitor/tracemonitor/groupCount?filter=traceMonitor.messageDate:BETWEEN:[2017-07-05,2017-09-20]&categoryName=TARGET
+Response JSON:
+[
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "ECASE_OCS",
+      "countNum": 67
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "IDMS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "MFT_RESP",
+      "countNum": 80
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "MFT_RESP",
+      "countNum": 3
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "CQA",
+      "countNum": 5
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "DAPPS",
+      "countNum": 130
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_CQA",
+      "countNum": 4
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD1",
+      "countNum": 25
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "ECASE_DEC_FIELD1",
+      "countNum": 184
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD2",
+      "countNum": 209
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD3",
+      "countNum": 209
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_ISR",
+      "countNum": 24
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_OCS",
+      "countNum": 236
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "GEO",
+      "countNum": 39
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "HTTPTEST",
+      "countNum": 14
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "MCM",
+      "countNum": 3
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "MCM",
+      "countNum": 75
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "SMARCS",
+      "countNum": 72
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "UTS",
+      "countNum": 439
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "UTS",
+      "countNum": 100
+   }
+]
+**************** Cout by SENDER ****************
+Request URI: https://esb-soa-soa.dev.asd.census.gov/ArchTraceMonitor/tracemonitor/groupCount?filter=traceMonitor.messageDate:BETWEEN:[2017-07-05,2017-09-20]&categoryName=SENDER
+Response JSON:
+[
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "CSHARPS",
+      "countNum": 4
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "DAPPS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "ESOA",
+      "countNum": 3
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "GEO",
+      "countNum": 3
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "CQA",
+      "countNum": 8
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "CQA",
+      "countNum": 61
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "DEC-SHARED",
+      "countNum": 99
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "DEC-SHARED",
+      "countNum": 60
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE-DEC-SHARED",
+      "countNum": 996
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "ECASE-DEC-SHARED",
+      "countNum": 499
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE-OCS",
+      "countNum": 71
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "MCM",
+      "countNum": 90
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "MCM",
+      "countNum": 10
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "MIKE",
+      "countNum": 14
+   }
+]
+**************** Cout by INTEGRATION_NAME ****************
+Request URI: https://esb-soa-soa.dev.asd.census.gov/ArchTraceMonitor/tracemonitor/groupCount?filter=traceMonitor.messageDate:BETWEEN:[2017-07-05,2017-09-20]&categoryName=INTEGRATION_NAME
+Response JSON:
+[
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "NonidAddressCBS",
+      "countNum": 63
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "PersonOfInterestCBS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "managedfiletransferresponse",
+      "countNum": 80
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "managedfiletransferresponse",
+      "countNum": 3
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "CollectionOperationCBS",
+      "countNum": 366
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "CollectionOperationCBS",
+      "countNum": 197
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "CollectionResponseCBS",
+      "countNum": 191
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "CollectioneventCBS",
+      "countNum": 348
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "CollectioneventCBS",
+      "countNum": 133
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "NonidAddressCBS",
+      "countNum": 99
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "PersonOfInterestCBS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "TimeExpenseCBS",
+      "countNum": 130
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "UserCaseAssignmentCBS",
+      "countNum": 4
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "UserCaseAssignmentCBS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "UserCaseStatusCBS",
+      "countNum": 135
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "UserCaseStatusCBS",
+      "countNum": 115
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "DELIVERED",
+      "itemName": "WorkLoadCBS",
+      "countNum": 43
+   },
+      {
+      "categoryName": "INTEGRATION_NAME",
+      "messageState": "ERROR",
+      "itemName": "WorkLoadCBS",
+      "countNum": 7
+   }
+]
+

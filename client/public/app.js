@@ -1,7 +1,7 @@
-var app = angular.module('soaApp', ['ui.router', 'chart.js']);
+var app = angular.module('soaApp', ['ui.router', 'chart.js', 'ui.bootstrap']);
 
 
-    app.config(['$stateProvider','$urlRouterProvider', 
+    app.config(['$stateProvider','$urlRouterProvider',
         function config($stateProvider, $urlRouterProvider){
      $urlRouterProvider.otherwise('/login');
      $stateProvider
@@ -27,31 +27,105 @@ var app = angular.module('soaApp', ['ui.router', 'chart.js']);
                 controller:'logoutCtrl',
                 controllerAs: 'logout'
             })
+
+// Graph
             .state('charts', {
                 url:'/charts',
-                templateUrl:'charts/pie.html',
-                controller: 'graphCtrl',
-                controllerAs: 'graph'
-            })
-            
-}])
+                views: {
+                    'header': {
+                        template: "<rd-widget><rd-widget-body classes='textmid'><h4>Analytic Graphs</h4></rd-widget-body></rd-widget>"
+                    },
+                    'datePicker': {
+                        templateUrl: "charts/dates.html",
+                        controller: 'dateCtrl'
+                    },
+                    'pieTotal': {
+                        templateUrl: "charts/pie.html",
+                        controller: 'pieCtrlTotal'
+                    },
+                    'pieSender': {
+                        templateUrl: "charts/pie.html",
+                        controller: 'pieCtrlSender'
+                    },
+                    'pieTarget': {
+                        templateUrl: "charts/pie.html",
+                        controller: 'pieCtrlTarget'
+                    },
+                    'pieIntegration': {
+                        templateUrl: "charts/pie.html",
+                        controller: 'pieCtrlInteg'
+                    },
+                    'barSender': {
+                        templateUrl: "charts/bar.html",
+                        controller: 'barCtrlSender'
+                    },
+                    'barTarget': {
+                        templateUrl: "charts/bar.html",
+                        controller: 'barCtrlTarget'
+                    },
+                    'barIntegration': {
+                        templateUrl: "charts/bar.html",
+                        controller: 'barCtrlInteg'
+                    }
+                }})
+            }]);
 
 app.controller("MasterCtrl", ['$scope','loginService',  
 function ($scope, loginService) {
     $scope.loggedIn = false;
     $scope.loggedOut = true;
     $scope.toggle = false;
+
     $scope.toggleSidebar = function(){
         $scope.toggle = !$scope.toggle;
-    }
+    };
+
     if(loginService.isLoggedIn() === true){
         $scope.loggedIn = true;
         $scope.loggedOut = false;
     } else {
         $scope.loggedIn = false;
         $scope.loggedOut = true;
-    }
-}]);
+    };
+
+    // Tabs
+    // Pie
+    $scope.tabsPie = [{
+        slug: 'total',
+        title: "Sum",
+        content: 'pieTotal'
+    }, {
+        slug: 'sender',
+        title: "Sender",
+        content: "pieSender"
+    }, {
+        slug: 'target',
+        title: "Target",
+        content: "pieTarget"
+    }, {
+        slug: 'integration',
+        title: "Integration",
+        content: "pieIntegration"
+    }];
+
+
+    // Bar
+    $scope.tabsBar = [{
+        slug: 'sender',
+        title: "Sender",
+        content: 'barSender'
+    }, {
+        slug: 'target',
+        title: "Target",
+        content: "barTarget"
+    }, {
+        slug: 'integration',
+        title: "Integration",
+        content: "barIntegration"
+    }];
+
+    }]);
+
 
 app.controller('logoutCtrl', ['$location', 'loginService', 
     function($location, loginService){
@@ -61,5 +135,5 @@ app.controller('logoutCtrl', ['$location', 'loginService',
             loginService.logout();
             $location.path('/#/login');
         };
-    }])
+    }]);
 

@@ -27,6 +27,7 @@
     "mns-core-ui": "^7.1.11",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.9",
+    "morgan": "^1.8.2",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-local-mongoose": "^4.2.1",
