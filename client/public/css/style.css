@@ -6257,3 +6257,7 @@ ul.sidebar .sidebar-list .menu-icon {
 .hospital-count {
     background: #f7d71b!important;;
 }
+.fixed-header {
+  border: 1px solid rgba(0, 0, 0, 0.12); }
+  .fixed-header tr {
+    background-color: #fff; }

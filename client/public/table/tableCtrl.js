@@ -84,7 +84,7 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
     $scope.endDate = new Date(year, month, day, hours, minutes);
   };
 
-  $scope.formats = ['MM-dd-yyyy hh:mm:ss a', 'yyyy/MM/dd', 'dd.MM.yyyy', ''];
+  $scope.formats = ['MMM dd yyyy hh:mm:ss a', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   $scope.format = $scope.formats[0];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 

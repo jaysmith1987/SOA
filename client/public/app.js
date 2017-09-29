@@ -1,4 +1,4 @@
-var app = angular.module('soaApp', ['ui.router', 'ui.bootstrap','chart.js','angularMoment', 'angularUtils.directives.dirPagination']);
+var app = angular.module('soaApp', ['ui.router', 'ui.bootstrap','chart.js','angularMoment', 'angularUtils.directives.dirPagination', 'anguFixedHeaderTable']);
 
 
     app.config(['$stateProvider','$urlRouterProvider', 

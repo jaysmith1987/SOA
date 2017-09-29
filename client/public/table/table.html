@@ -55,7 +55,7 @@
             <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
             <button type="button" class="btn btn-default" ng-click="timePicker()"><i class="fa fa-clock-o"></i></button>
           </span>
-          <div ng-if="showTime" class="panel col-xs-6">
+          <div ng-if="showTime" class="panel col-xs-7">
           <div class="well">
           <label class="center">Select Time:</label>
           <div  uib-timepicker ng-model="dateRange.startDate"  hour-step="1" minute-step="15" show-meridian="true"></div>
@@ -72,7 +72,7 @@
             <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
             <button type="button" class="btn btn-default" ng-click="timePicker2()"><i class="fa fa-clock-o"></i></button>
           </span>
-         <div ng-if="showTime2" class="panel col-xs-6">
+         <div ng-if="showTime2" class="panel col-xs-7">
           <div class="well">
           <label class="center">Select Time:</label>
           <div  uib-timepicker ng-model="dateRange.endDate"  hour-step="1" minute-step="15" show-meridian="true"></div>
@@ -100,8 +100,8 @@
           </div>
         </div>
             <rd-widget-body classes="large no-padding">
-                <div class=table-responsive>
-                    <table class=table>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-condensed">
                         <tbody>
                             <tr>
                                 <th class="col-lg-1 col-md-1 col-sm-1" >Conversation ID</th>
@@ -111,7 +111,6 @@
                                 <th class="col-lg-1 col-md-1 col-sm-1">Date</th>
                                 <th class="col-lg-1 col-md-1 col-sm-1">Status</th>
                             </tr>
-
                             <tr dir-paginate="(key, val) in tables| filter: filterThis | filter:errorButton | filter: byDelivered | filter: hospital | filter:search|itemsPerPage: 50">
                                 <td>{{val.conversationID}}</td>
                                 <td>{{val.integrationName}}</td>
@@ -124,9 +123,6 @@
                         </tbody>
                     </table>
                 </div>
-                <ul>
-                    
-              
             </rd-widget-body>
                   <rd-widget-footer>
                    <dir-pagination-controls 
