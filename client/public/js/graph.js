@@ -129,29 +129,31 @@ app.controller('barCtrlSender', ['$scope', '$http',
       var labels = [];
       var dictDelivered = {};
       var dictError = {};
+      var keys = ["DELIVERED", "ERROR"]
       var delivered = [];
       var error = [];
-      $http.get('api/json')
+      $http.get('http://localhost:3006/sender')
       .then(function(response){
         var json = response.data;
         for (var i = 0; i < json.length; i++){
-            if(labels.indexOf(json[i].sender) == -1){
-                labels.push(json[i].sender);
+            if(labels.indexOf(json[i].itemName) == -1){
+                labels.push(json[i].itemName);
             }};
-        for (var i = 0; i < labels.length; i++){
-            dictDelivered[labels[i]] = 0;
-            dictError[labels[i]] = 0;
-            };
-        for (var i = 0; i < json.length; i++){
-            if(json[i].messageState === "DELIVERED"){
-              dictDelivered[json[i].sender] = (dictDelivered[json[i].sender]) + 1;
-            } else if(json[i].messageState === "ERROR"){
-              dictError[json[i].sender] = (dictError[json[i].sender]) + 1;
-            }};
-        for (var i = 0; i < labels.length; i++){
-            delivered.push((Object.values(dictDelivered))[i]);
-            error.push((Object.values(dictError))[i]);            
-            };
+        // for (var i = 0; i < labels.length; i++){
+        //     dictDelivered[labels[i]] = 0;
+        //     dictError[labels[i]] = 0;
+        //     };
+        for(var j = 0; j < labels.length; j++)
+          for (var i = 0; i < json.length; i++){
+              if(json[i].messageState === "DELIVERED" && json[i].categoryName === labels[i]){
+                dictDelivered[json[i].sender] = (dictDelivered[json[i].sender]) + 1;
+              } else if(json[i].messageState === "ERROR"){
+                dictError[json[i].sender] = (dictError[json[i].sender]) + 1;
+              }};
+        // for (var i = 0; i < labels.length; i++){
+        //     delivered.push((Object.values(dictDelivered))[i]);
+        //     error.push((Object.values(dictError))[i]);            
+        //     };
 
 
       $scope.labels = labels;
@@ -168,7 +170,7 @@ app.controller('barCtrlTarget', ['$scope', '$http',
       var dictError = {};
       var delivered = [];
       var error = [];
-      $http.get('api/json')
+      $http.get('http://localhost:3005/target')
       .then(function(response){
         var json = response.data;
         for (var i = 0; i < json.length; i++){
@@ -203,7 +205,7 @@ app.controller('barCtrlInteg', ['$scope', '$http',
       var dictError = {};
       var delivered = [];
       var error = [];
-      $http.get('api/json')
+      $http.get('http://localhost:3007/integration')
       .then(function(response){
         var json = response.data;
         for (var i = 0; i < json.length; i++){

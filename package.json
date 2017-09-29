@@ -4,7 +4,10 @@
   "description": "Mock website that displays  oracle data in a dashboard.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "apiTarget": "json-server --watch SampleJSONPayload_Target.json --port 3005",
+    "apiSender": "json-server --watch SampleJSONPayload_Sender.json --port 3006",
+    "apiIntegration": "json-server --watch SampleJSONPayload_Integration.json --port 3007"
   },
   "dependencies": {
     "async": "*",
