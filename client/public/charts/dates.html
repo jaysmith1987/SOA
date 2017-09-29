@@ -1,0 +1,46 @@
+<div class="container-fluid" style="width: 100%;">
+<div class="col-lg-12 col-md-12 col-xs-12">
+    <rd-widget>
+        <rd-widget-body>
+ <form ng-submit="getData(dateRange)" >
+     <div class="container-fluid col-md-6">
+     <div class="title" >Start Date</div>
+        <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dateRange.startDate" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn"><br><br>
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+            <button type="button" class="btn btn-default" ng-click="timePicker()"><i class="fa fa-clock-o"></i></button>
+          </span>
+          <div ng-if="showTime" class="panel col-xs-6">
+          <div class="well">
+          <label class="center">Select Time:</label>
+          <div  uib-timepicker ng-model="dateRange.startDate"  hour-step="1" minute-step="15" show-meridian="true"></div>
+          <button type="button" class="btn btn-primary" ng-click="closeTime()">Close</button>
+          </div>
+          </div>
+        </p>
+        </div>
+        <div class="container-fluid col-md-6">
+        <div class="title">End Date</div>
+        <p class="input-group">
+          <input type="text"  class="form-control" uib-datepicker-popup="{{format}}" ng-model="dateRange.endDate" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+            <button type="button" class="btn btn-default" ng-click="timePicker2()"><i class="fa fa-clock-o"></i></button>
+          </span>
+         <div ng-if="showTime2" class="panel col-xs-6">
+          <div class="well">
+          <label class="center">Select Time:</label>
+          <div  uib-timepicker ng-model="dateRange.endDate"  hour-step="1" minute-step="15" show-meridian="true"></div>
+          <button type="button" class="btn btn-primary" ng-click="closeTime2()">Close</button>
+          </div>
+        </div>
+        </p>
+        </div>
+    <button type="submit" class="btn btn-primary ">Search</button>
+    <button type="button" ng-click="reset()" class="btn btn-default">Reset</button>
+    </form>
+        </rd-widget-body>
+    </rd-widget>
+    </div>
+</div>

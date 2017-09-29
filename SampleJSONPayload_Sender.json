@@ -1,0 +1,88 @@
+{
+"sender":[
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "CSHARPS",
+      "countNum": 4
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "DAPPS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "ESOA",
+      "countNum": 3
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "GEO",
+      "countNum": 3
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "CQA",
+      "countNum": 8
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "CQA",
+      "countNum": 61
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "DEC-SHARED",
+      "countNum": 99
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "DEC-SHARED",
+      "countNum": 60
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE-DEC-SHARED",
+      "countNum": 996
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "ECASE-DEC-SHARED",
+      "countNum": 499
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE-OCS",
+      "countNum": 71
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "DELIVERED",
+      "itemName": "MCM",
+      "countNum": 90
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "MCM",
+      "countNum": 10
+   },
+      {
+      "categoryName": "SENDER",
+      "messageState": "ERROR",
+      "itemName": "MIKE",
+      "countNum": 14
+   }
+]
+}

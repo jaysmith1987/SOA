@@ -4,7 +4,10 @@
   "description": "Mock website that displays  oracle data in a dashboard.",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start ./bin/www",
+    "start": "nodemon ./bin/www",
+    "apiTarget": "json-server --watch SampleJSONPayload_Target.json --port 3005",
+    "apiSender": "json-server --watch SampleJSONPayload_Sender.json --port 3006",
+    "apiIntegration": "json-server --watch SampleJSONPayload_Integration.json --port 3007",
     "api": "json-server --watch SampleJSONPayload.json --port 3004"
   },
   "dependencies": {
@@ -29,6 +32,7 @@
     "mns-core-ui": "^7.1.11",
     "mongodb": "^2.2.31",
     "mongoose": "^4.11.9",
+    "morgan": "^1.8.2",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-local-mongoose": "^4.2.1",

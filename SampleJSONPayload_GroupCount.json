@@ -1,0 +1,125 @@
+
+{
+"data":[
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "ECASE_OCS",
+      "countNum": 67
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "IDMS",
+      "countNum": 2
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "MFT_RESP",
+      "countNum": 80
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "MFT_RESP",
+      "countNum": 3
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "CQA",
+      "countNum": 5
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "DAPPS",
+      "countNum": 130
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_CQA",
+      "countNum": 4
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD1",
+      "countNum": 25
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "ECASE_DEC_FIELD1",
+      "countNum": 184
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD2",
+      "countNum": 209
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_DEC_FIELD3",
+      "countNum": 209
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_ISR",
+      "countNum": 24
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "ECASE_OCS",
+      "countNum": 236
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "GEO",
+      "countNum": 39
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "HTTPTEST",
+      "countNum": 14
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "MCM",
+      "countNum": 3
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "MCM",
+      "countNum": 75
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "SMARCS",
+      "countNum": 72
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "DELIVERED",
+      "itemName": "UTS",
+      "countNum": 439
+   },
+      {
+      "categoryName": "TARGET",
+      "messageState": "ERROR",
+      "itemName": "UTS",
+      "countNum": 100
+   }
+]
+}

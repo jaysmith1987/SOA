@@ -21,7 +21,7 @@
       <ul class="sidebar">
         <li class="sidebar-main">
           <a ng-click="toggleSidebar()">
-            <img src="census-logo.png" style="width: 110px; height: 35px;">
+            SOA Dashboard
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
         </li>
@@ -51,8 +51,8 @@
         </li>
 
       </ul>
-      <!-- <div class="sidebar-footer">
-      </div> -->
+      <div class="sidebar-footer">
+      </div>
     </div>
     <!-- End Sidebar -->
 
@@ -88,91 +88,17 @@
               <div class="page">
                 SOA Operations Dashboard
               </div>
-<<<<<<< HEAD
-=======
               <!--<div class="breadcrumb-links">
                 Home / Overview
               </div>-->
->>>>>>> master
             </div>
           </div>
         </div>
         <!-- End Header Bar -->
 
         <!-- Main Content -->
-        <div class="row">
-            <div class="col-lg-12">
-              <div ui-view="header"></div>
-            </div>
-        </div>
-         <!-- <div ng-app="soaApp" ng-controller="TabCtrl"> -->
-        <div class="row">
-            <div class="col-lg-12">
-              <div ui-view="datePicker"></div>
-            </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <!-- <rd-widget>
-              <rd-widget-body classes="graphsize"> -->
-            <uib-tabset>
-              <uib-tab ng-repeat="tab in tabsPie" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
-                <div ui-view="{{ tab.content }}"></div>
-              </uib-tab>
-            </uib-tabset>
-              <!-- </rd-widget-body>
-            </rd-widget> -->
-          </div>
-          <div class="col-lg-6">
-            <!-- <rd-widget>
-              <rd-widget-body classes="graphsize"> -->
-            <uib-tabset>
-              <uib-tab ng-repeat="tab in tabsBar" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
-                <div ui-view="{{ tab.content }}"></div>
-              </uib-tab>
-            </uib-tabset>
-              <!-- </rd-widget-body>
-            </rd-widget> -->
-          </div>
-        </div>
-        <!-- </div>  -->
+        <div ui-view></div>
 
-
-        <!-- -->
-
-        <!-- <div ui-view></div>
-         <div class="row">
-            <div class="col-lg-12">
-              <div ui-view="datePicker"></div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div ui-view="pie"></div>
-            </div>  
-            <div class="col-lg-6">
-                <div ui-view="bar"></div>
-            </div>
-        </div>
-        <div class="row">
-          <rd-widget>
-          </rd-widget>
-        </div> -->
-
-
-
-
-             <!-- <rd-widget>
-              <div class="row">
-                <ul class="pagination pagination-md">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">Pie/Bar</a></li>
-                    <li><a href="#">Line</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul> 
-                <div class="clearfix"></div>
-              </div>
-            </rd-widget>  -->
       </div><!-- End Page Content -->
     </div><!-- End Content Wrapper -->
   </div><!-- End Page Wrapper -->
@@ -191,7 +117,6 @@
    <script src="register/registerCtrl.js"></script>
    <script src="login/loginCtrl.js"></script>
    <script src="table/tableCtrl.js"></script>
-   <!-- <script src="js/date.js"></script> -->
     <!--Directives -->
     <script src="js/directives/loading.js"></script>
     <script src="js/directives/widget.js"></script>
@@ -204,7 +129,6 @@
       <script src="libs/chart.js/dist/Chart.js"></script>
       <script src="libs/angular-chart.js/angular-chart.js"></script>
       <script src="js/graph.js"></script> 
-      <!-- <script src="js/tab.js"></script>   -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
    
   </body>

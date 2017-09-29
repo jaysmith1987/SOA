@@ -9,8 +9,6 @@
     integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/css/style.css"/>
-    <link rel="stylesheet" href="/lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css"/>
-    
 
     </head>
  <body ng-app="soaApp" ng-controller="MasterCtrl" >
@@ -29,25 +27,25 @@
         <li class="sidebar-title"><span>Content</span></li>
 
         <li class="sidebar-list">
-          <a href="/#/login">Login<span class="menu-icon fa fa-sign-in"></span></a>
+          <a href="/#/login" ng-show="loggedOut">Login<span class="menu-icon fa fa-sign-in"></span></a>
         </li>
 
         <li class="sidebar-list">
-          <a href="/#/register" >Register<span class="menu-icon fa fa-user-plus"></span></a>
+          <a href="/#/register" ng-show="loggedOut">Register<span class="menu-icon fa fa-user-plus"></span></a>
         </li>
 
         <li class="sidebar-list">
-          <a href="/#/table" >Data <span class="menu-icon fa fa-table"></span></a>
+          <a href="/#/table" ng-show="loggedIn">Data <span class="menu-icon fa fa-table"></span></a>
         </li>
 
         <li class="sidebar-list">
-          <a href="/#/charts" >Charts <span class="menu-icon fa fa-rocket"></span></a>
+          <a href="/#/charts" ng-show="loggedIn">Charts <span class="menu-icon fa fa-rocket"></span></a>
         </li>
 
         
 
         <li class="sidebar-list">
-          <a href="logout" >Logout<span class="menu-icon fa fa-sign-out"></span></a>
+          <a href="logout" ng-show="loggedIn">Logout<span class="menu-icon fa fa-sign-out"></span></a>
         </li>
 
       </ul>
@@ -88,12 +86,6 @@
               <div class="page">
                 SOA Operations Dashboard
               </div>
-<<<<<<< HEAD
-=======
-              <!--<div class="breadcrumb-links">
-                Home / Overview
-              </div>-->
->>>>>>> master
             </div>
           </div>
         </div>
@@ -178,13 +170,10 @@
   </div><!-- End Page Wrapper -->
    <!--JS-->
    <script src="libs/angular/angular.min.js"></script>
-   <script src="libs/angular-animate/angular-animate.js"></script>
-   <script src="libs/angular-sanitize/angular-sanitize.js"></script>
-   <script src="libs/moment/moment.js"></script>
-   <script src="libs/ui-bootstrap-tpls-2.5.0.min.js"></script>
    <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-   <script src="libs/angular-moment/angular-moment.js"></script>
-   <script src="libs/angularUtils-pagination/dirPagination.js"></script>
+   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.js"></script>
+   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.js"></script>
    <script src="app.js"></script>
    <script src="js/authService.js"></script>
    <script src="js/loginService.js"></script>
