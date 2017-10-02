@@ -1,5 +1,5 @@
-app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
-    function($scope, $http, tableData, moment){
+app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment','$location',
+    function($scope, $http, tableData, moment, $location){
         $scope.tables = [];
         $scope.lists = [];
         $scope.expanded = false;  
@@ -55,9 +55,12 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
   $scope.today();
 
   
-  $scope.reset = function(){
-     $scope.dateRange.reset();
-  }
+  $scope.reset = function(dateRange){
+    this.dateRange = null;
+     tableData.getStandardData().then(function(data){
+            $scope.tables = data;
+        })
+  };
 
   $scope.clear = function() {
     $scope.startDate = null;
