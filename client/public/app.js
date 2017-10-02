@@ -1,4 +1,4 @@
-var app = angular.module('soaApp', ['ui.router', 'ui.bootstrap','chart.js','angularMoment', 'angularUtils.directives.dirPagination', 'anguFixedHeaderTable']);
+var app = angular.module('soaApp', ['ui.router','chart.js', 'ui.bootstrap','angularMoment', 'angularUtils.directives.dirPagination', 'anguFixedHeaderTable']);
 
 
 
@@ -20,9 +20,9 @@ var app = angular.module('soaApp', ['ui.router', 'ui.bootstrap','chart.js','angu
             })
             .state('table', {
                 url: '/table',
-                templateUrl:'table/table.html',
+                templateUrl: 'table/table.html',
                 controller: 'tableCtrl',
-                controllerAs: 'table'
+                controllerAs: 'table'  
             })
             .state('logout', {
                 controller:'logoutCtrl',

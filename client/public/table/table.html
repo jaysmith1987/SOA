@@ -3,7 +3,7 @@
         <rd-widget>
             <rd-widget-body>
                 <div class="widget-icon blue pull-left" ng-click="setTransaction()"><i class="fa fa-users"></i></div>
-                <div class=title><li class="hidden" ng-repeat="table in conversation =(tables|orderBy:'conversation')"></li>
+                <div class=title><li class="hidden" ng-repeat="table in conversation =(tables|orderBy:'conversation'|filter: filterThis | filter:errorButton | filter: byDelivered | filter: hospital)"></li>
                 {{conversation.length}}</div>
                 <div class=comment>Transactions</div>
             </rd-widget-body>
@@ -13,7 +13,7 @@
         <rd-widget>
             <rd-widget-body>
                 <div class="widget-icon green pull-left" ng-click="setDelivered()"><i class="fa fa-check"></i></div>
-                <div class=title><li class="hidden" ng-repeat="table in delivered =(tables|filter: 'delivered')"></li>
+                <div class=title><li class="hidden" ng-repeat="table in delivered =(tables|filter: 'delivered'| filter: filterThis | filter:errorButton | filter: byDelivered | filter: hospital)"></li>
                 {{delivered.length}}</div>
                 <div class=comment>Delivered</div>
             </rd-widget-body>
@@ -23,7 +23,7 @@
         <rd-widget>
             <rd-widget-body>
                 <div class="widget-icon hospital-count pull-left" ng-click="setError()"><i class="fa fa-times"></i></div>
-                <div class="title" ><li class="hidden" ng-repeat="table in errors =(tables|filter: 'error')" ></li>{{errors.length}}</div>
+                <div class="title" ><li class="hidden" ng-repeat="table in errors =(tables|filter: 'error'| filter: filterThis | filter:errorButton | filter: byDelivered | filter: hospital)" ></li>{{errors.length}}</div>
                 <div class='comment'>Errors</div>
                 <modal></modal>
             </rd-widget-body>
@@ -33,7 +33,7 @@
         <rd-widget>
             <rd-widget-body>
                 <div class="widget-icon red pull-left" ng-click="sethospital()"><i class="fa fa-heartbeat"></i></div>
-                <div class=title><li class="hidden" ng-repeat="table in hospital =(tables|filter: 'manual')"></li>
+                <div class=title><li class="hidden" ng-repeat="table in hospital =(tables|filter: 'manual'| filter: filterThis |filter: byDelivered | filter:errorButton)"></li>
                 {{hospital.length}}</div>
                 <div class=comment>Hospital Count</div>
             </rd-widget-body>
@@ -46,7 +46,7 @@
 <div class="col-lg-12 col-md-12 col-xs-12">
     <rd-widget>
         <rd-widget-body>
- <form ng-submit="getData(dateRange)" >
+ <form  name="dateSelector" id="dateSelector" ng-submit="getData(dateRange)" >
      <div class="container-fluid col-lg-6">
      <div class="title" >Start Date</div>
         <p class="input-group">
@@ -114,10 +114,10 @@
                             <tr dir-paginate="(key, val) in tables| orderBy:myOrderBy: reverse | filter: filterThis | filter:errorButton | filter: byDelivered | filter: hospital | filter:search|itemsPerPage: 50">
                                 <td class="col-xs-2">{{val.conversationID}}</td>
                                 <td class="col-xs-2">{{val.integrationName}}</td>
-                                <td class="col-xs-2">{{val.sender}}</td>
+                                <td class="col-xs-3">{{val.sender}}</td>
                                 <td class="col-xs-2">{{val.target}}</td>
-                                <td class="col-xs-2">{{val.messageDate}}</td>
-                                <td class="col-xs-2" ng-class="{ 'text-primary': val.messageState === 'ERROR'}" ng-click="getValue(val.conversationID, val.errorInfo.errorReason, val.errorInfo.errorDetail, val.errorInfo.retryStatus)" >{{val.messageState}}</td>  
+                                <td class="col-xs-4">{{val.messageDate}}</td>
+                                <td class="col-xs-1" ng-class="{ 'text-primary': val.messageState === 'ERROR'}" ng-click="getValue(val.conversationID, val.errorInfo.errorReason, val.errorInfo.errorDetail, val.errorInfo.retryStatus)" >{{val.messageState}}</td>  
                                                      
                           </tr>
                         </tbody>
@@ -126,7 +126,7 @@
             </rd-widget-body>
                   <rd-widget-footer>
                    <dir-pagination-controls 
-                   max-size="30"
+                   max-size="50"
                    direction-links="true"
                    boundary-links="true">
                    </dir-pagination-controls>
@@ -136,9 +136,9 @@
     </div>
 
 <div  id="errorInfo" ng-if="errorReason">
-<div class="card">
- <h4 class="card-header text-center">Error Info</h4>
-  <div class="card-body">
+<div class="panel">
+ <h4 class="panel-header text-center">Error Info</h4>
+  <div class="panel-body">
        <span class="text-justify text-danger">ConversationID:</span>
        <span>&nbsp;{{convoId}}</span><br>
        <span class="text-justify text-danger">ErrorReason: </span><span>{{errorReason}}</span><br>
@@ -148,9 +148,5 @@
        </div>
 </div>
 </div>
-    
-  
 
-<div class=row>
-  
-</div>
+
