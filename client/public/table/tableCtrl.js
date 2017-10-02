@@ -5,10 +5,29 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
         $scope.expanded = false;  
         $scope.showTime = false;  
         $scope.showTime2 = false;
+        $scope.md = false;
+        $scope.empty = false;
+
          
         tableData.getStandardData().then(function(data){
             $scope.tables = data;
         })
+
+       
+
+         $scope.orderByMe = function(x){
+           $scope.myOrderBy = x;
+           if($scope.myOrderBy === 'messageDate'){
+             $scope.md = !$scope.md;
+           }
+           if(!$scope.md){
+             $scope.reverse = true;
+           }
+           if($scope.md){
+             $scope.reverse = false;
+           }
+         }
+
         
 
         $scope.theValue = function(selected){
@@ -35,10 +54,17 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
   };
   $scope.today();
 
+  
+  $scope.reset = function(){
+     $scope.dateRange.reset();
+  }
+
   $scope.clear = function() {
     $scope.startDate = null;
     $scope.endDate = null;
   };
+
+
 
   $scope.inlineOptions = {
     customClass: getDayClass,
@@ -47,19 +73,13 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
   };
 
   $scope.dateOptions = {
-    dateDisabled: disabled,
     formatYear: 'yy',
     maxDate: new Date(2020, 5, 22),
     minDate: new Date(),
     startingDay: 1
   };
 
-  // Disable weekend selection
-  function disabled(data) {
-    var date = data.date,
-      mode = data.mode;
-    return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-  }
+
 
   $scope.toggleMin = function() {
     $scope.inlineOptions.minDate = $scope.inlineOptions.minDate ? null : new Date();
@@ -79,12 +99,12 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
     $scope.showTime = false;
   };
 
-  $scope.setDate = function(year, month, day, hours, minutes) {
-    $scope.startDate = new Date(year, month, day, hours, minutes);
-    $scope.endDate = new Date(year, month, day, hours, minutes);
+  $scope.setDate = function(year, month, day) {
+    $scope.startDate = new Date(year, month, day);
+    $scope.endDate = new Date(year, month, day);
   };
 
-  $scope.formats = ['MM-dd-yyyy hh:mm:ss a', 'yyyy/MM/dd', 'dd.MM.yyyy', ''];
+  $scope.formats = ['MMM dd yyyy hh:mm:ss a', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
   $scope.format = $scope.formats[0];
   $scope.altInputFormats = ['M!/d!/yyyy'];
 
@@ -192,11 +212,7 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment',
      $scope.showTime = false;
    }
 
-   $scope.reset = function(){
-      tableData.getStandardData().then(function(data){
-            $scope.tables = data;
-        })
-   }
+  
 
    console.log($scope.startDate.toISOString() + '' + $scope.endDate.toISOString());
     }]);
