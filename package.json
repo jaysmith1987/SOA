@@ -4,7 +4,7 @@
   "description": "Mock website that displays  oracle data in a dashboard.",
   "main": "index.js",
   "scripts": {
-    "start": "pm2 start ./bin/www",
+    "start": "nodemon  ./bin/www",
     "api": "json-server --watch SampleJSONPayload.json --port 3004"
   },
   "dependencies": {
