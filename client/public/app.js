@@ -1,4 +1,4 @@
-var app = angular.module('soaApp', ['ui.router','chart.js', 'ui.bootstrap','angularMoment', 'angularUtils.directives.dirPagination', 'anguFixedHeaderTable']);
+var app = angular.module('soaApp', ['ui.router','ui.bootstrap', 'chart.js', 'angularMoment', 'angularUtils.directives.dirPagination', 'anguFixedHeaderTable']);
 
 
 
@@ -71,11 +71,17 @@ var app = angular.module('soaApp', ['ui.router','chart.js', 'ui.bootstrap','angu
                 }})
             }]);
 
-app.controller("MasterCtrl", ['$scope','loginService',  
-function ($scope, loginService) {
+app.controller("MasterCtrl", ['$scope','loginService',  '$location',
+function ($scope, loginService, $location) {
     $scope.loggedIn = false;
     $scope.loggedOut = true;
     $scope.toggle = false;
+
+    if($location.path() === '/charts') {
+        $scope.charts = true;
+    } else {
+        $scope.charts = false;
+    }
 
     $scope.toggleSidebar = function(){
         $scope.toggle = !$scope.toggle;
