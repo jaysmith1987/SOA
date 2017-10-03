@@ -19,17 +19,19 @@ var app = angular.module('soaApp', ['ui.router', 'chart.js', 'ui.bootstrap']);
             })
             .state('table', {
                 url: '/table',
-                templateUrl:'table/table.html',
-                controller: 'tableCtrl',
-                controllerAs: 'table'
+                views: {
+                    'tables@':{
+                        templateUrl:'table/table.html',
+                        controller: 'tableCtrl',
+                        controllerAs: 'table'                       
+                    }
+                }
             })
             .state('logout', {
                 controller:'logoutCtrl',
                 controllerAs: 'logout'
             })
-
-// Graph
-            .state('charts', {
+            .state('charts', {                 // Graph
                 url:'/charts',
                 views: {
                     'header': {
