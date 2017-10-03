@@ -36,11 +36,11 @@
         </li>
 
         <li class="sidebar-list">
-          <a href="/#/table" >Data <span class="menu-icon fa fa-table"></span></a>
+          <a ng-click="reload()" href="/#/table" >Data <span ng-click="reload()" class="menu-icon fa fa-table"></span></a>
         </li>
 
         <li class="sidebar-list">
-          <a href="/#/charts" >Charts <span class="menu-icon fa fa-rocket"></span></a>
+          <a ng-click="reload()" href="/#/charts">Charts <span ng-click="reload()" class="menu-icon fa fa-rocket"></span></a>
         </li>
 
         
@@ -111,17 +111,17 @@
                   <div ui-view="datePicker"></div>
                 </div>
             </div>
-            <div class="row">
+            <div ng-hide="!charts" class="row">
               <div class="col-lg-6">
-                <uib-tabset>
-                  <uib-tab ng-repeat="tab in tabsPie" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
+                <uib-tabset ng-hide="!charts">
+                  <uib-tab ng-if="charts" ng-repeat="tab in tabsPie" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
                     <div ui-view="{{ tab.content }}"></div>
                   </uib-tab>
                 </uib-tabset>
               </div>
-              <div class="col-lg-6">
+              <div ng-hide="!charts" class="col-lg-6">
                   <uib-tabset>
-                      <uib-tab ng-repeat="tab in tabsBar" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
+                      <uib-tab  ng-repeat="tab in tabsBar" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
                         <div ui-view="{{ tab.content }}"></div>
                       </uib-tab>
                   </uib-tabset>

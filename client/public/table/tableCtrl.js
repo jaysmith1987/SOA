@@ -7,7 +7,6 @@ app.controller('tableCtrl', ['$scope', '$http', 'tableData', 'moment','$location
         $scope.showTime2 = false;
         $scope.md = false;
         $scope.empty = false;
-
          
         tableData.getStandardData().then(function(data){
             $scope.tables = data;

@@ -71,18 +71,12 @@ var app = angular.module('soaApp', ['ui.router','ui.bootstrap', 'chart.js', 'ang
                 }})
             }]);
 
-app.controller("MasterCtrl", ['$scope','loginService',  '$location',
-function ($scope, loginService, $location) {
+app.controller("MasterCtrl", ['$scope','loginService',  '$location', '$state',
+function ($scope, loginService, $location, $state) {
     $scope.loggedIn = false;
     $scope.loggedOut = true;
     $scope.toggle = false;
-
-    if($location.path() === '/charts') {
-        $scope.charts = true;
-    } else {
-        $scope.charts = false;
-    }
-
+    $scope.charts = false;
     $scope.toggleSidebar = function(){
         $scope.toggle = !$scope.toggle;
     };
@@ -94,6 +88,19 @@ function ($scope, loginService, $location) {
         $scope.loggedIn = false;
         $scope.loggedOut = true;
     };
+
+    $scope.reload = function(){
+        location.reload();
+    }
+
+    if($location.path() === '/charts'){
+        console.log('yes');
+        $scope.charts = true;
+    } else if($location.path() !== '/charts'){
+        $scope.charts = false;
+        console.log()
+    }
+    console.log($location.path());
 
     // Tabs
     // Pie
