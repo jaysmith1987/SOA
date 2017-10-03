@@ -1,0 +1,127 @@
+<!--public/views/index.html-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+     <base href="/login">
+    <title>SOAapp</title>
+    <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" 
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css"/>
+
+    </head>
+ <body ng-app="soaApp" ng-controller="MasterCtrl" >
+     <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a ng-click="toggleSidebar()">
+            SOA Dashboard
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+        </li>
+
+        <li class="sidebar-title"><span>Content</span></li>
+
+        <li class="sidebar-list">
+          <a href="/#/login" ng-show="loggedOut">Login<span class="menu-icon fa fa-sign-in"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/register" ng-show="loggedOut">Register<span class="menu-icon fa fa-user-plus"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/table" ng-show="loggedIn">Data <span class="menu-icon fa fa-table"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/charts" ng-show="loggedIn">Charts <span class="menu-icon fa fa-rocket"></span></a>
+        </li>
+
+        
+
+        <li class="sidebar-list">
+          <a href="logout" ng-show="loggedIn">Logout<span class="menu-icon fa fa-sign-out"></span></a>
+        </li>
+
+      </ul>
+      <div class="sidebar-footer">
+      </div>
+    </div>
+    <!-- End Sidebar -->
+
+    <div id="content-wrapper">
+      <div class="page-content">
+
+        <!-- Header Bar -->
+        <div class="row header">
+          <div class="col-xs-12">
+            <div class="user pull-right">
+              <div class="item dropdown">
+                  <img src="images\Seal_of_the_United_States_Census_Bureau.svg.png">
+                </span>
+                <ul class="dropdown-menu dropdown-menu-right">
+                </ul>
+              </div>
+              <div class="item dropdown">
+               <!-- <a href="#" class="dropdown-toggle">
+                  <i class="fa fa-bell-o"></i>
+                </a> -->
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">
+                    Notifications
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">Server Down!</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">
+                SOA
+              </div>
+              <div class="breadcrumb-links">
+                Home / Overview
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Header Bar -->
+
+        <!-- Main Content -->
+        <div ui-view></div>
+
+      </div><!-- End Page Content -->
+    </div><!-- End Content Wrapper -->
+  </div><!-- End Page Wrapper -->
+   <!--JS-->
+   <script src="libs/angular/angular.min.js"></script>
+   <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+   <script src="app.js"></script>
+   <script src="js/authService.js"></script>
+   <script src="js/loginService.js"></script>
+   <script src="register/registerCtrl.js"></script>
+   <script src="login/loginCtrl.js"></script>
+   <script src="table/tableCtrl.js"></script>
+    <!--Directives -->
+    <script src="js/directives/loading.js"></script>
+    <script src="js/directives/widget.js"></script>
+    <script src="js/directives/widget-body.js"></script>
+    <script src="js/directives/widget-footer.js"></script>
+    <script src="js/directives/widget-header.js"></script>
+
+    <!--Charts-->
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script src="libs/chart.js/dist/Chart.js"></script>
+      <script src="libs/angular-chart.js/angular-chart.js"></script>
+      <script src="js/graph.js"></script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+   
+  </body>
+</html>

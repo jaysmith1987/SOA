@@ -41,4 +41,15 @@ app.factory('loginService', ['$http', 'AuthToken',
       };
 
       return authTokenFactory;
-  }])
+  }]);
+
+//   app.factory('tableData', ['$http', function($http){
+//       var tableFactory = [];
+
+//       tableFactory.log = function(apiData){
+//           return $http.get('api/json', apiData).then(function(data){
+//               return data;
+//           })
+//       }
+//       return tableFactory;
+//   }])

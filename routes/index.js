@@ -10,7 +10,8 @@ var User = require('../models/users');
 /* GET home page. */
 
 router.get('/api/json', function(req,res){
-  res.sendfile('SampleJSONPayload.txt')
+ res.sendfile('SampleJSONPayload.json')
+ 
 })
 
 router.get('/api/users', function(req,res){

@@ -7,9 +7,11 @@
     "start": "nodemon ./bin/www",
     "apiTarget": "json-server --watch SampleJSONPayload_Target.json --port 3005",
     "apiSender": "json-server --watch SampleJSONPayload_Sender.json --port 3006",
-    "apiIntegration": "json-server --watch SampleJSONPayload_Integration.json --port 3007"
+    "apiIntegration": "json-server --watch SampleJSONPayload_Integration.json --port 3007",
+    "api": "json-server --watch SampleJSONPayload.json --port 3004"
   },
   "dependencies": {
+    "angular-bootstrap-datetimepicker": "^1.1.4",
     "async": "*",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.4.3",
@@ -48,6 +50,7 @@
   },
   "homepage": "https://github.com/jaysmith1987/SOA#readme",
   "devDependencies": {
+    "concurrently": "^3.5.0",
     "gulp": "^3.9.1"
   }
 }

@@ -37,6 +37,87 @@
               <a href="logout" ng-show="loggedIn">Logout<span class="menu-icon fa fa-sign-out"></span></a>
             </li>
           </ul>
+    <link rel="stylesheet" href="/lib/angular-ui-bootstrap-datetimepicker/datetimepicker.css"/>
+    
+
+    </head>
+ <body ng-app="soaApp" ng-controller="MasterCtrl" >
+     <div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar">
+        <li class="sidebar-main">
+          <a ng-click="toggleSidebar()">
+            <img src="census-logo.png" style="width: 110px; height: 35px;">
+            <span class="menu-icon glyphicon glyphicon-transfer"></span>
+          </a>
+        </li>
+
+        <li class="sidebar-title"><span>Content</span></li>
+
+        <li class="sidebar-list">
+          <a href="/#/login">Login<span class="menu-icon fa fa-sign-in"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/register" >Register<span class="menu-icon fa fa-user-plus"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/table" >Data <span class="menu-icon fa fa-table"></span></a>
+        </li>
+
+        <li class="sidebar-list">
+          <a href="/#/charts" >Charts <span class="menu-icon fa fa-rocket"></span></a>
+        </li>
+
+        
+
+        <li class="sidebar-list">
+          <a href="logout" >Logout<span class="menu-icon fa fa-sign-out"></span></a>
+        </li>
+
+      </ul>
+      <!-- <div class="sidebar-footer">
+      </div> -->
+    </div>
+    <!-- End Sidebar -->
+
+    <div id="content-wrapper">
+      <div class="page-content">
+
+        <!-- Header Bar -->
+        <div class="row header">
+          <div class="col-xs-12">
+            <div class="user pull-right">
+              <div class="item dropdown">
+                  <img src="images\Seal_of_the_United_States_Census_Bureau.svg.png">
+                </span>
+                <ul class="dropdown-menu dropdown-menu-right">
+                </ul>
+              </div>
+              <div class="item dropdown">
+               <!-- <a href="#" class="dropdown-toggle">
+                  <i class="fa fa-bell-o"></i>
+                </a> -->
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">
+                    Notifications
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a href="#">Server Down!</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">
+                SOA Operations Dashboard
+              </div>
+            </div>
+          </div>
         </div>
         <!-- End Sidebar -->
         <div id="content-wrapper">
