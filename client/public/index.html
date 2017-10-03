@@ -97,51 +97,37 @@
 
         <!-- Main Content -->
         <div class="container-fluid">
-        <div ui-view></div>
-         <div ui-view="header"></div>
-         <div ui-view="datePicker"></div>
-
+          <div ui-view></div>
         </div>
-          </div>
-        </div>
-        <!-- </div>  -->
-
-
-        <!-- -->
-
-        <!-- <div ui-view></div>
-         <div class="row">
-            <div class="col-lg-12">
-              <div ui-view="datePicker"></div>
+        <div  ng-if="charts" class="container-fluid">
+            <div ui-view="tables"></div>
+            <div class="row">
+                <div class="col-lg-12">
+                  <div ui-view="header"></div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div ui-view="pie"></div>
-            </div>  
-            <div class="col-lg-6">
-                <div ui-view="bar"></div>
+            <div class="row">
+                <div class="col-lg-12">
+                  <div ui-view="datePicker"></div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-          <rd-widget>
-          </rd-widget>
-        </div> -->
-
-
-
-
-             <!-- <rd-widget>
-              <div class="row">
-                <ul class="pagination pagination-md">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">Pie/Bar</a></li>
-                    <li><a href="#">Line</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul> 
-                <div class="clearfix"></div>
+            <div class="row">
+              <div class="col-lg-6">
+                <uib-tabset>
+                  <uib-tab ng-repeat="tab in tabsPie" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
+                    <div ui-view="{{ tab.content }}"></div>
+                  </uib-tab>
+                </uib-tabset>
               </div>
-            </rd-widget>  -->
+              <div class="col-lg-6">
+                  <uib-tabset>
+                      <uib-tab ng-repeat="tab in tabsBar" heading="{{tab.title}}" active="tab.active" select="onTabSelected(tab.slug)">
+                        <div ui-view="{{ tab.content }}"></div>
+                      </uib-tab>
+                  </uib-tabset>
+              </div>
+            </div>
+        </div>
       </div><!-- End Page Content -->
     </div><!-- End Content Wrapper -->
   </div><!-- End Page Wrapper -->
@@ -174,7 +160,6 @@
       <script src="libs/chart.js/dist/Chart.js"></script>
       <script src="libs/angular-chart.js/angular-chart.js"></script>
       <script src="js/graph.js"></script> 
-      <!-- <script src="js/tab.js"></script>   -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
    
   </body>
