@@ -4,7 +4,7 @@
   "description": "Mock website that displays  oracle data in a dashboard.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "concurrently \"nodemon ./bin/www\" \"npm run apiTarget\" \"npm run apiSender\" \"npm run apiIntegration\" \"npm run api\"",
     "apiTarget": "json-server --watch SampleJSONPayload_Target.json --port 3009",
     "apiSender": "json-server --watch SampleJSONPayload_Sender.json --port 3006",
     "apiIntegration": "json-server --watch SampleJSONPayload_Integration.json --port 3007",
